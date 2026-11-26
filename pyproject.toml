@@ -1,0 +1,17 @@
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14"]
+build-backend = "uv_build"
+
+[project]
+name = "gravitas"
+version = "0.1.0"
+description = "Reproducible computational physics experiments"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+gravitas = "gravitas.cli:main"
+
+[tool.uv.build-backend]
+source-include = ["PLAN.md", "AGENTS.md", "docs/**", "research/**", "tests/**"]

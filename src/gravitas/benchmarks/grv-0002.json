@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "evidence": "established",
+  "environment": {
+    "medium": "vacuum",
+    "times": [
+      {
+        "value": 0,
+        "unit": "s"
+      }
+    ]
+  },
+  "controls": [
+    "sources_off"
+  ],
+  "validation": {
+    "relative_tolerance": 0.00001
+  },
+  "safety": {
+    "simulation_only": true,
+    "max_current": {
+      "value": 5,
+      "unit": "A"
+    }
+  },
+  "seed": 419,
+  "id": "GRV-0002",
+  "name": "Finite-disk artificial gravity reference",
+  "description": "Uniform thin disk of positive mass with axial observations over a human-height span.",
+  "hypothesis": "A finite disk follows Newtonian gravity and its on-axis acceleration falls with height.",
+  "prediction": "Above the disk, acceleration points down and weakens with height.",
+  "models": [
+    "newtonian-v1"
+  ],
+  "components": [
+    {
+      "id": "plate",
+      "type": "disk",
+      "position": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "unit": "m"
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "parameters": {
+        "mass": {
+          "value": 1000,
+          "unit": "kg"
+        },
+        "radius": {
+          "value": 2,
+          "unit": "m"
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "feet",
+      "position": {
+        "value": [
+          0,
+          0,
+          0.1
+        ],
+        "unit": "m"
+      }
+    },
+    {
+      "id": "waist",
+      "position": {
+        "value": [
+          0,
+          0,
+          1
+        ],
+        "unit": "m"
+      }
+    },
+    {
+      "id": "head",
+      "position": {
+        "value": [
+          0,
+          0,
+          2.1
+        ],
+        "unit": "m"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "component": "plate",
+      "parameter": "mass",
+      "min": {
+        "value": 500,
+        "unit": "kg"
+      },
+      "max": {
+        "value": 5000,
+        "unit": "kg"
+      }
+    },
+    {
+      "component": "plate",
+      "parameter": "radius",
+      "min": {
+        "value": 1,
+        "unit": "m"
+      },
+      "max": {
+        "value": 4,
+        "unit": "m"
+      }
+    }
+  ],
+  "objectives": [
+    "gravity_m_s2",
+    "gravity_gradient_s2"
+  ]
+}

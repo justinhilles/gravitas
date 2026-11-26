@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "evidence": "established",
+  "environment": {
+    "medium": "vacuum",
+    "times": [
+      {
+        "value": 0,
+        "unit": "s"
+      },
+      {
+        "value": 0.0125,
+        "unit": "s"
+      },
+      {
+        "value": 0.025,
+        "unit": "s"
+      },
+      {
+        "value": 0.05,
+        "unit": "s"
+      },
+      {
+        "value": 0.075,
+        "unit": "s"
+      }
+    ]
+  },
+  "controls": [
+    "sources_off"
+  ],
+  "validation": {
+    "relative_tolerance": 0.00001
+  },
+  "safety": {
+    "simulation_only": true,
+    "max_current": {
+      "value": 5,
+      "unit": "A"
+    }
+  },
+  "seed": 419,
+  "id": "GRV-0001",
+  "name": "Three-axis electromagnetic field",
+  "description": "Orthogonal, coaxially paired filament rings and a small isotropic sample.",
+  "hypothesis": "Independent coil fields superpose under quasistatic conditions.",
+  "prediction": "At the center, quadrature-driven X and Y pairs produce a field of constant magnitude. Z excitation is zero.",
+  "models": [
+    "newtonian-v1",
+    "biot-savart-v1"
+  ],
+  "components": [
+    {
+      "id": "x",
+      "type": "coil_pair",
+      "position": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "unit": "m"
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "parameters": {
+        "mass": {
+          "value": 2,
+          "unit": "kg"
+        },
+        "radius": {
+          "value": 0.25,
+          "unit": "m"
+        },
+        "turns": {
+          "value": 50,
+          "unit": "1"
+        },
+        "current": {
+          "value": 2,
+          "unit": "A"
+        },
+        "frequency": {
+          "value": 10,
+          "unit": "Hz"
+        },
+        "phase": {
+          "value": 0,
+          "unit": "rad"
+        }
+      }
+    },
+    {
+      "id": "y",
+      "type": "coil_pair",
+      "position": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "unit": "m"
+      },
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "parameters": {
+        "mass": {
+          "value": 2,
+          "unit": "kg"
+        },
+        "radius": {
+          "value": 0.25,
+          "unit": "m"
+        },
+        "turns": {
+          "value": 50,
+          "unit": "1"
+        },
+        "current": {
+          "value": 2,
+          "unit": "A"
+        },
+        "frequency": {
+          "value": 10,
+          "unit": "Hz"
+        },
+        "phase": {
+          "value": -1.5707963267948966,
+          "unit": "rad"
+        }
+      }
+    },
+    {
+      "id": "z",
+      "type": "coil_pair",
+      "position": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "unit": "m"
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "parameters": {
+        "mass": {
+          "value": 2,
+          "unit": "kg"
+        },
+        "radius": {
+          "value": 0.25,
+          "unit": "m"
+        },
+        "turns": {
+          "value": 50,
+          "unit": "1"
+        },
+        "current": {
+          "value": 0,
+          "unit": "A"
+        },
+        "frequency": {
+          "value": 10,
+          "unit": "Hz"
+        },
+        "phase": {
+          "value": 0,
+          "unit": "rad"
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "id": "center",
+      "position": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "unit": "m"
+      }
+    },
+    {
+      "id": "offset",
+      "position": {
+        "value": [
+          0.02,
+          0.01,
+          0.03
+        ],
+        "unit": "m"
+      }
+    },
+    {
+      "id": "axial",
+      "position": {
+        "value": [
+          0,
+          0,
+          0.05
+        ],
+        "unit": "m"
+      }
+    }
+  ],
+  "sample": {
+    "material": "bismuth",
+    "mass": {"value": 0.00000978, "unit": "kg"},
+    "volume": {
+      "value": 1e-9,
+      "unit": "m^3"
+    }
+  },
+  "parameters": [
+    {
+      "component": "x",
+      "parameter": "current",
+      "min": {
+        "value": 0.5,
+        "unit": "A"
+      },
+      "max": {
+        "value": 4,
+        "unit": "A"
+      }
+    },
+    {
+      "component": "y",
+      "parameter": "current",
+      "min": {
+        "value": 0.5,
+        "unit": "A"
+      },
+      "max": {
+        "value": 4,
+        "unit": "A"
+      }
+    }
+  ],
+  "objectives": [
+    "magnetic_force_n",
+    "magnetic_energy_j"
+  ]
+}
